@@ -51,7 +51,7 @@ All character variables were dummy encoded and the remaining features that conta
 
 Instead of modelling price per night, I modelled price per person per night, since some listings can accommodate more than 1 person. This is to ensure a like for like comparison between the features and the price of the accommodation.
 
-To test which features are most predictive of price, I made use of a Lasso regression model initially. Least Absolute Shrinkage and Selection Operator Regression is a regularized version of Linear Regression. A regularization term is added to the cost function. This forces the learning algorithm to not only fit the data but to keep the weights as small as possible. 
+To test which features are most predictive of price, I made use of a Lasso regression model initially. Least Absolute Shrinkage and Selection Operator Regression is a regularized version of Linear Regression where a regularization term is added to the cost function. This forces the learning algorithm to not only fit the data but to keep the weights as small as possible. 
 An import characteristic of Lasso Regression is that it tends to completely eliminate the weights of the least important features (i.e. set them to zero)
 
 I also made use of a Random Forest Regression model to identify the most predictive variables
