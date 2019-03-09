@@ -28,6 +28,15 @@ Clone the github repository and install all the dependencies.
 git clone git@github.com:Rmostert/Airbnb-CT-analysis.git
 ```
 
+## Files in Repository
+
+| Files                                | Description                                                        |
+| ------------------------------------ |:-------------------------------------------------------------------|
+| data/listings July 2018.csv.zip      | Airbnb listings as of July 2018                                    |
+| data/listings.csv.gz                 | Airbnb listings as of November 2018                                |
+| graphs/                              | Contains all the graphs that are generated in the Jupyter notebook |
+| Airbnb Cape Town EDA.ipynb           | The Jupyter notebook containing the exploratory analysis           |
+
 ## Discussion
 ### Data management
 
@@ -57,6 +66,7 @@ An import characteristic of Lasso Regression is that it tends to completely elim
 I also made use of a Random Forest Regression model to identify the most predictive variables
 
 
+## Results
 
 
 
