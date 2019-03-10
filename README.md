@@ -28,6 +28,15 @@ Clone the github repository and install all the dependencies.
 git clone git@github.com:Rmostert/Airbnb-CT-analysis.git
 ```
 
+## Files in Repository
+
+| Files                                | Description                                                        |
+| ------------------------------------ |:-------------------------------------------------------------------|
+| data/listings July 2018.csv.zip      | Airbnb listings as of July 2018                                    |
+| data/listings.csv.gz                 | Airbnb listings as of November 2018                                |
+| graphs/                              | Contains all the graphs that are generated in the Jupyter notebook |
+| Airbnb Cape Town EDA.ipynb           | The Jupyter notebook containing the exploratory analysis           |
+
 ## Discussion
 ### Data management
 
@@ -40,8 +49,9 @@ In the end I opted for using the 1st and 99th percentile to identify outliers an
 When dealing with missing values there were a few fields where all the values were missing, so I dropped them all together. I also dropped fields containing more than 80% missing values.
 
 The `amenities` column contained all the amenities the property offers in a  format like this:
-
+```
 '{TV,"Cable TV",Wifi,"Air conditioning",Kitchen,"Free parking on premises","Pets live on this property",Cat(s),"Other pet(s)","Buzzer/wireless intercom",Heating,Washer,Dryer,"Smoke detector","Carbon monoxide detector","First aid kit",Essentials,Shampoo,"24-hour check-in",Hangers,"Hair dryer",Iron,"Laptop friendly workspace","translation missing: en.hosting_amenity_49","translation missing: en.hosting_amenity_50","Private entrance","Hot water",Microwave,"Coffee maker",Refrigerator,"Dishes and silverware","Cooking basics",Oven,Stove,"Single level home","BBQ grill","Patio or balcony","Garden or backyard","Luggage dropoff allowed","Long term stays allowed","Cleaning before checkout","Well-lit path to entrance","Host greets you"}'
+```
 
 I had to loop through all of these and create indicator variables for each of these amenities. I dropped all amenities with fewer than 50 instances.
 
@@ -55,6 +65,7 @@ To test which features are most predictive of price, I made use of a Lasso regre
 An import characteristic of Lasso Regression is that it tends to completely eliminate the weights of the least important features (i.e. set them to zero)
 
 I also made use of a Random Forest Regression model to identify the most predictive variables
+
 
 
 
