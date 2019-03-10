@@ -43,17 +43,44 @@ git clone git@github.com:Rmostert/Airbnb-CT-analysis.git
 
 ## Summary of the results 
 
+Full report for the project can be viewed at below link on medium:
+https://medium.com/@riaanmostert/location-location-airbnb-acfe9b706003
+
 ### How important is location in determining the price of the accommodation
+
+<p align="center">
+  <img src="graphs/Cape Town map.png" title="Price per location">
+</p>
+
+Location is important, but only up until a point. The suburb the the accommodation is situated in is much more important.
 
 ### What types of accommodation are available
 
+<p align="center">
+  <img src="graphs/Property Type.png" title="Property types">
+</p>
+
 ### What are the main drivers of price
+
+
+<p align="center">
+  <img src="graphs/Feature importance graph - price per person.png" title="Drivers of price">
+</p>
+
+Review scores are not the most important driver of price, and neither is the location of the property- unless it's located in Ward 54 of Cape Town. 
 
 ### Do hosts increase their prices significantly between low season and high season?
 
 
+<p align="center">
+  <img src="graphs/Price differences.png" title="Price difference">
+</p>
 
+There doesn't see to be a relationship between time of year and the price per night. A more comprehensive study is probably required.
 
+## Acknowledgements
+
+All the data that were used in this project was sourced from the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) website. 
 
 
 
