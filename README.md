@@ -1,5 +1,7 @@
 # Analysing Cape Town Airbnb listing data
 
+## Project Motivation
+
 As a Data Scientist, I'm always interested in the data underlying everything, so you can imagine my delight when I discovered that Airbnb data are just a mouse click away. [Inside Airbnb](http://insideairbnb.com/get-the-data.html) makes Airbnb listing information available for us Data Scientists to play with.
 I made use of the November 2018 Cape Town, South Africa listings and was interested in answering the following questions:
 
@@ -34,42 +36,20 @@ git clone git@github.com:Rmostert/Airbnb-CT-analysis.git
 | ------------------------------------ |:-------------------------------------------------------------------|
 | data/listings July 2018.csv.zip      | Airbnb listings as of July 2018                                    |
 | data/listings.csv.gz                 | Airbnb listings as of November 2018                                |
-| graphs/                              | Contains all the graphs that are generated in the Jupyter notebook |
+| graphs/                              | Contains all the graphs that were generated in the Jupyter notebook |
 | Airbnb Cape Town EDA.ipynb           | The Jupyter notebook containing the exploratory analysis           |
+| helper_functions.py                  | A Python script containing the functions that were used in the     |
+|                                      | Jupyter notebook                                                   |
 
-## Discussion
-### Data management
+## Summary of the results 
 
-The first issue that had to be dealt with was the price field that was in a character format. The prices were also in dollars. These looked way too high and based on my experience as a South African, it looked like it should be in South African Rands. By going onto Airbnb's website, and looking up a few of the properties, I saw that this was indeed the case. I therefore stripped out the $ signs and the thousand separators when converting this field to numeric values.
+### How important is location in determining the price of the accommodation
 
-I secondly had a look at the distribution of the price fields and saw that there were some extreme values -0 on the lower end and almost R200 000 at the upper end. By checking some of these listings on the Airbnb's site, I saw that it's definitely not a data error. My hypothesis is that the host currently doesn't want to rent out the room/property, but also don't want to remove the listing from Airbnb's website- maybe arduous to list it again or maybe there are some cost considerations involved- so they set it to an exorbitant amount so no-one will book this property. 
+### What types of accommodation are available
 
-In the end I opted for using the 1st and 99th percentile to identify outliers and to remove them altogether.
+### What are the main drivers of price
 
-When dealing with missing values there were a few fields where all the values were missing, so I dropped them all together. I also dropped fields containing more than 80% missing values.
-
-The `amenities` column contained all the amenities the property offers in a  format like this:
-```
-'{TV,"Cable TV",Wifi,"Air conditioning",Kitchen,"Free parking on premises","Pets live on this property",Cat(s),"Other pet(s)","Buzzer/wireless intercom",Heating,Washer,Dryer,"Smoke detector","Carbon monoxide detector","First aid kit",Essentials,Shampoo,"24-hour check-in",Hangers,"Hair dryer",Iron,"Laptop friendly workspace","translation missing: en.hosting_amenity_49","translation missing: en.hosting_amenity_50","Private entrance","Hot water",Microwave,"Coffee maker",Refrigerator,"Dishes and silverware","Cooking basics",Oven,Stove,"Single level home","BBQ grill","Patio or balcony","Garden or backyard","Luggage dropoff allowed","Long term stays allowed","Cleaning before checkout","Well-lit path to entrance","Host greets you"}'
-```
-
-I had to loop through all of these and create indicator variables for each of these amenities. I dropped all amenities with fewer than 50 instances.
-
-All character variables were dummy encoded and the remaining features that contained mising values were either imputed with zeros (the 7 different ratings) and identified with an imputation indicator or dropped (`months_host`)
-
-## Modelling
-
-Instead of modelling price per night, I modelled price per person per night, since some listings can accommodate more than 1 person. This is to ensure a like for like comparison between the features and the price of the accommodation.
-
-To test which features are most predictive of price, I made use of a Lasso regression model initially. Least Absolute Shrinkage and Selection Operator Regression is a regularized version of Linear Regression where a regularization term is added to the cost function. This forces the learning algorithm to not only fit the data but to keep the weights as small as possible. 
-An import characteristic of Lasso Regression is that it tends to completely eliminate the weights of the least important features (i.e. set them to zero)
-
-I also made use of a Random Forest Regression model to identify the most predictive variables
-
-
-
-
-
+### Do hosts increase their prices significantly between low season and high season?
 
 
 
